@@ -1,0 +1,90 @@
+<div class="note-app">
+  <aside>
+    <div class="side-header">
+      <h2>Note</h2>
+      <span (click)="addNote()">Add</span>
+    </div>
+
+    <div class="side-body">
+      <ng-container *ngIf="notes.length > 0; else emptyArray">
+        <div class="side-search">
+          <div class="form-group">
+            <i class="icon fas fa-search"></i>
+            <input [(ngModel)]="search" type="text" placeholder="Search" />
+          </div>
+        </div>
+        <ng-container *ngFor="let item of notes | noteFilter: search">
+          <div
+            (click)="activeNote(item)"
+            class="side-item"
+            [ngClass]="{ active: item.id === note?.id }"
+          >
+            <div class="side-title">
+              <h4>
+                {{ item.title }}
+              </h4>
+              <span (click)="deleteNote(item.id)">Delete</span>
+            </div>
+            <p *ngIf="item.note">
+              {{ item.note }}
+            </p>
+            <div class="side-date">
+              Last Modified {{ item.date | date: 'dd/MM/yyyy HH:mm a' }}
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+
+      <ng-template #emptyArray>
+        <div class="side-empty">
+          <h2>No Activities</h2>
+        </div>
+      </ng-template>
+    </div>
+  </aside>
+
+  <main>
+    <div class="main-body">
+      <ng-container *ngIf="note; else emptyNote">
+        <div class="note-assign">
+          <div class="form-group">
+            <input
+              (input)="updateNote(note)"
+              [(ngModel)]="note.title"
+              type="text"
+              placeholder="Note Title"
+            />
+          </div>
+
+          <div class="form-group">
+            <textarea
+              (input)="updateNote(note)"
+              [(ngModel)]="note.note"
+              placeholder="Write your note here."
+              [rows]="10"
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="note-preview">
+          <h2>Preview</h2>
+
+          <br />
+
+          <h4>
+            {{ note.title }}
+          </h4>
+
+          <br />
+          <p>
+            {{ note.note }}
+          </p>
+        </div>
+      </ng-container>
+
+      <ng-template #emptyNote>
+        <h2>No Activity.</h2>
+      </ng-template>
+    </div>
+  </main>
+</div>

@@ -1,0 +1,139 @@
+.note-app {
+  width: 100%;
+  display: flex;
+}
+
+aside {
+  width: 30%;
+  height: 100vh;
+}
+aside .side-body {
+  height: calc(100vh - 70px);
+  overflow-y: scroll;
+}
+
+aside .side-header {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #ddd;
+}
+aside .side-header h2 {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+aside .side-header span {
+  color: #3131f0;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.side-body .side-empty {
+  padding: 20px;
+  text-align: center;
+}
+.side-body .side-search {
+  margin: 5px 5px 8px 5px;
+}
+.side-body .side-search > .form-group {
+  position: relative;
+}
+.side-body .side-search .icon {
+  position: absolute;
+  top: 35%;
+  right: 12px;
+  font-size: 14px;
+}
+.side-body .side-search input {
+  font-size: 18px;
+  padding-right: 35px;
+}
+
+.side-body .side-item {
+  padding: 1.3rem;
+  cursor: pointer;
+  border-bottom: 1px solid #e6e6e6;
+}
+.side-body .side-item:last-child {
+  border-bottom: 0;
+}
+.side-body .side-item:hover {
+  background-color: #e6e6e6;
+}
+.side-body .side-item.active {
+  background-color: #5858bb;
+  color: #fff;
+  border-bottom: 1px solid #5858bb;
+}
+
+.side-body .side-item > p {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 350px;
+  overflow: hidden;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.side-body .side-title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.side-body .side-title > span {
+  color: #d33;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+}
+.side-body .side-title > h4 {
+  font-size: 18px;
+  text-overflow: ellipsis;
+  max-width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.side-body .side-date {
+  font-size: 14px;
+}
+
+main {
+  width: 70%;
+}
+main .main-body {
+  padding: 1.5rem;
+}
+.main-body .note-assign {
+  margin-bottom: 30px;
+}
+.note-assign .form-group {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 20px;
+  outline: none;
+  border: 1px solid #ccc;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  border: 1px solid #000;
+}
+
+.note-preview {
+  border-top: 1px solid #ccc;
+  background-color: rgba(0, 0, 0, 0.02);
+  width: 100%;
+  height: 40vh;
+  overflow-y: scroll;
+  padding: 20px;
+}
+
+.note-preview > p {
+  line-height: 1.7rem;
+}
