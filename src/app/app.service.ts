@@ -60,7 +60,6 @@ export class AppService {
   }
 
   removeNoteItem(id: string) {
-    // console.log(id);
     const newVal = this.notes.filter((el) => el.id !== id);
     this.notes$.next(newVal);
     localStorage.setItem('notes', JSON.stringify(newVal));
