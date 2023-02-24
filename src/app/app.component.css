@@ -124,6 +124,9 @@ main .main-body {
 .form-group textarea:focus {
   border: 1px solid #000;
 }
+.form-group textarea {
+  resize: none;
+}
 
 .note-preview {
   border-top: 1px solid #ccc;
